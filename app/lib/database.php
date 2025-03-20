@@ -88,3 +88,27 @@ function getVacancy(PDO $db, int $id): array|bool
 
     return $statement->fetch();
 }
+
+
+function applyForVacancy(PDO $db, int $id, string $name, string $email, string $motivation, string $cvPath): bool
+{
+    $vacancySql = 'SELECT id FROM ' . TABLE_VACANCIES . ' WHERE id = :id';
+    $vacancyStatement = $db->prepare($vacancySql);
+    $vacancyStatement->execute(['id' => $id]);
+    $vacancy = $vacancyStatement->fetch();
+    if (!$vacancy) {
+        throw new DomainException('Vacature bestaat niet.');
+    }
+
+    $sql = 'INSERT INTO applications (name, email, motivation, cv, vacancy_id) VALUES (:name, :email, :motivation, :cv, :vacancy_id)';
+    $statement = $db->prepare($sql);
+    $statement->execute([
+        'name' => $name,
+        'email' => $email,
+        'motivation' => $motivation,
+        'cv' => file_get_contents($cvPath),
+        'vacancy_id' => $id
+    ]);
+
+    return $statement->rowCount() === 1;
+}

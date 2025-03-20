@@ -48,6 +48,32 @@ function raiseNotFound(string $message = 'Pagina bestaat niet'): void
     exit();
 }
 
+/**
+ * @param string $message
+ * @return void
+ */
+function raiseBadRequestJson(string $message): void
+{
+    http_response_code(400);
+    header('Content-Type: application/json');
+    die(json_encode(['ok' => false, 'message' => $message]));
+}
+
+/**
+ * @return void
+ */
+function successRequestJson(): void
+{
+    http_response_code(200);
+    header('Content-Type: application/json');
+    die(json_encode(['ok' => true]));
+}
+
+/**
+ * @param int $currentPage
+ * @param int $page
+ * @return string
+ */
 function formatPageLink(int $currentPage, int $page): string
 {
     $link = $_SERVER['QUERY_STRING'];

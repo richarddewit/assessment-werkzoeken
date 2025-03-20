@@ -1,4 +1,4 @@
-<form action="/" method="get">
+<form action="/" method="get" class="search">
     <label for="search">Wat</label>
     <input type="text" name="search" id="search" value="<?= $search ? htmlspecialchars($search) : '' ?>">
     <label for="location">Waar</label>

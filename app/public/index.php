@@ -5,6 +5,7 @@ const INCLUDE_DIR = __DIR__ . '/../include';
 require_once(LIB_DIR . '/utils.php');
 require_once(LIB_DIR . '/database.php');
 
+// Query parameters verifiëren
 $search = $_GET['search'] ?? null;
 $location = $_GET['location'] ?? null;
 $page = $_GET['page'] ?? null;
@@ -14,7 +15,6 @@ $db = connectToDatabase();
 $vacancies = getVacancies($db, search: $search, location: $location, page: $page);
 $totalVacancies = getVacancyCount($db, search: $search, location: $location);
 $totalPages = ceil($totalVacancies / PAGE_SIZE);
-var_dump($totalVacancies);
 
 require_once(INCLUDE_DIR . '/html_start.php');
 ?>

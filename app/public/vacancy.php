@@ -16,6 +16,7 @@ if (!$vacancy) {
     raiseNotFound('Vacature bestaat niet.');
 }
 
+// Query parameters in de link terug, zodat je verder kan waar je gebleven was
 $backlink = '/' . ($_SERVER['QUERY_STRING'] ? '?' . $_SERVER['QUERY_STRING'] : '');
 $backlink = str_replace('id=' . $id, '', $backlink);
 
@@ -38,5 +39,9 @@ require_once(INCLUDE_DIR . '/html_start.php');
 <hr>
 <p><strong>Contactpersoon:</strong> <?= $vacancy['contact'] ?></p>
 
+
+<?php require_once(INCLUDE_DIR . '/elements/application_form.php') ?>
+
+<script src="/assets/js/apply.js"></script>
 
 <?php require_once(INCLUDE_DIR . '/html_end.php') ?>

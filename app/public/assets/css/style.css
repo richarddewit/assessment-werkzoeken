@@ -49,7 +49,11 @@ hr {
     margin: 1em 0;
 }
 
-form {
+abbr {
+    cursor: help;
+}
+
+form.search {
     text-align: center;
     margin-bottom: 1em;
     padding-bottom: 1em;
@@ -62,6 +66,15 @@ form input {
 
 form label {
     font-weight: bold;
+}
+
+button {
+    padding: 0.5em 1em;
+    background-color: #7CA;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 .vacancy {
@@ -91,3 +104,50 @@ form label {
     background-color: #7CA;
     color: white;
 }
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 1em;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    width: 400px;
+    max-width: 90%;
+}
+
+.popup.show {
+    display: block;
+}
+
+.popup .close {
+    position: absolute;
+    top: 0.5em;
+    right: 0.5em;
+    cursor: pointer;
+    line-height: 1;
+    font-size: 1.3em;
+}
+
+#application label,
+#application input[type="text"],
+#application input[type="email"],
+#application input[type="file"],
+#application textarea {
+    display: block;
+    width: 100%;
+}
+
+#application textarea {
+    resize: vertical;
+}
+
+#application > div {
+    margin-bottom: 0.3em;
+}
+
+

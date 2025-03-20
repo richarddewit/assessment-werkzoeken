@@ -28,13 +28,13 @@ solliciteren.
 2. Vacaturedetailpagina
    - [x] Toon de volledige vacature-informatie (titel, bedrijf, omschrijving, locatie,
    contactpersoon).
-   - [ ] Voeg een knop "Solliciteer" toe op deze detailpagina.
+   - [x] Voeg een knop "Solliciteer" toe op deze detailpagina.
 3. Sollicitatieformulier (HTML/CSS/JS)
-   - [ ] Bij klikken op "Solliciteer" verschijnt een eenvoudig formulier (native JS).
-   - [ ] Formulier bevat: naam, e-mail, CV-upload en korte motivatie.
-   - [ ] Voeg simpele JS-validatie toe (controleer verplichte velden).
+   - [x] Bij klikken op "Solliciteer" verschijnt een eenvoudig formulier (native JS).
+   - [x] Formulier bevat: naam, e-mail, CV-upload en korte motivatie.
+   - [x] Voeg simpele JS-validatie toe (controleer verplichte velden).
 4. PHP/MySQL Sollicitatie-afhandeling
-   - [ ] Sla ingestuurde sollicitaties eenvoudig op in MySQL via PHP.
+   - [x] Sla ingestuurde sollicitaties eenvoudig op in MySQL via PHP.
 
 ### Belangrijk bij oplevering
    - Gebruik géén frameworks of externe libraries.
