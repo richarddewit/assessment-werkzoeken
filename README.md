@@ -1,5 +1,11 @@
 # Developer Assessment (PHP/MySQL & HTML/CSS/JS)
 
+## Applicatie draaien
+
+1. Clone deze repo
+2. Voer `docker-compose up --build` uit
+3. Open `http://localhost:8080`
+
 ## Opdracht
 
 Maak een compact vacaturesoverzicht en vacaturepagina met mogelijkheid om direct te

@@ -1,0 +1,48 @@
+services:
+  nginx:
+    build:
+      context: ./docker/nginx
+    container_name: nginx
+    restart: unless-stopped
+    volumes:
+      - ./app:/var/www
+    depends_on:
+      - php
+      - db
+    ports:
+      - "8080:80"
+    networks:
+      - assessment
+
+  php:
+    build:
+      context: ./docker/php
+    container_name: php
+    restart: unless-stopped
+    volumes:
+      - ./app:/var/www
+    depends_on:
+      - db
+    networks:
+      - assessment
+
+  db:
+    image: mysql:9.2
+    container_name: db
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=db
+      - MYSQL_USER=db
+      - MYSQL_PASSWORD=db
+      - MYSQL_ROOT_PASSWORD=db
+    volumes:
+      - ./docker/database/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "33060:3306"
+    networks:
+      - assessment
+
+
+networks:
+  assessment:
+    name: assessment
