@@ -6,6 +6,11 @@
 2. Voer `docker-compose up --build` uit
 3. Open `http://localhost:8080`
 
+Om code te formatten, voer dit uit:
+```bash
+docker-compose run --rm php-cs-fixer fix .
+```
+
 ## Opdracht
 
 Maak een compact vacaturesoverzicht en vacaturepagina met mogelijkheid om direct te

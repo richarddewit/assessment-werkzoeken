@@ -42,6 +42,11 @@ services:
     networks:
       - assessment
 
+  php-cs-fixer:
+    build: ./docker/php-cs-fixer
+    volumes:
+      - ./app:/app
+
 
 networks:
   assessment:
