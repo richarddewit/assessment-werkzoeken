@@ -24,6 +24,8 @@ function getVacancies($db, $search = null, $location = null): array
         $params['location'] = $location;
     }
 
+    $sql .= ' ORDER BY created_at DESC';
+
     $statement = $db->prepare($sql);
     $statement->execute($params);
 
