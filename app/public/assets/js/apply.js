@@ -24,8 +24,9 @@ document.forms.application.addEventListener('submit', (e) => {
     e.preventDefault()
     messageElement.textContent = 'Bezig met versturen...'
 
-    const url = e.currentTarget.action;
-    const body = new FormData(e.currentTarget);
+    const form = e.currentTarget
+    const url = form.action;
+    const body = new FormData(form);
 
     fetch(url, {
         body,
@@ -39,6 +40,7 @@ document.forms.application.addEventListener('submit', (e) => {
             }
 
             messageElement.textContent = 'Verzonden! Bedankt voor je sollicitatie.'
+            form.reset()
         })
         .catch((error) => {
             console.error(error);
