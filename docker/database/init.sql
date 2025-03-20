@@ -1,3 +1,4 @@
+-- Vacature tabel maken
 DROP TABLE IF EXISTS `vacancies`;
 CREATE TABLE `vacancies`
 (
@@ -11,6 +12,22 @@ CREATE TABLE `vacancies`
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
 
+-- Applications tabel maken
+DROP TABLE IF EXISTS `applications`;
+CREATE TABLE `applications`
+(
+    `id`         int(11)      NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `vacancy_id` int(11)      NOT NULL,
+    `name`       varchar(255) NOT NULL,
+    `email`      varchar(255) NOT NULL,
+    `motivation` varchar(400) NOT NULL,
+    `cv`         longblob     NOT NULL,
+    `created_at` datetime DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    FOREIGN KEY (`vacancy_id`) REFERENCES `vacancies`(`id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8mb4;
+
+-- Vacature tabel vullen
 LOCK TABLES `vacancies` WRITE;
 INSERT INTO `vacancies`
 VALUES
@@ -115,4 +132,5 @@ VALUES
        ('99', 'Financial Analyst 3', 'PayPall', 'Eindhoven', 'Elijah Musketeer', 'Analyze financial data to support business decisions.', '2024-12-20 13:40:00'),
        ('100', 'Robotics Engineer 3', 'Teslab', 'Groningen', 'Nick Ola', 'Develop robotic systems for automation and AI.', '2024-12-22 15:25:00');
 UNLOCK TABLES;
+
 
