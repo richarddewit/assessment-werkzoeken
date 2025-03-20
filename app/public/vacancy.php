@@ -13,6 +13,7 @@ if (!$vacancy) {
     raiseNotFound('Vacature bestaat niet.');
 }
 
+$title = $vacancy['title'];
 require_once(__DIR__ . '/../include/html_start.php');
 ?>
 
@@ -23,9 +24,13 @@ require_once(__DIR__ . '/../include/html_start.php');
     <small><abbr title="<?= $vacancy['created_at'] ?>"><?= time_elapsed_string($vacancy['created_at']) ?></abbr></small>
 </p>
 
+<a href="/">&laquo; Terug naar overzicht</a>
+<hr>
+
+
 <p><?= $vacancy['body'] ?></p>
+<hr>
 <p><strong>Contactpersoon:</strong> <?= $vacancy['contact'] ?></p>
 
-<a href="/">&laquo; Terug naar overzicht</a>
 
 <?php require_once(__DIR__ . '/../include/html_end.php') ?>
