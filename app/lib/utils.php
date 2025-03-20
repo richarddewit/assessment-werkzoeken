@@ -1,7 +1,15 @@
 <?php
 
-# Genereert een relative tijdstring op basis van de gegeven datum, bijvol: 2 dagen geleden
-function time_elapsed_string($datetime, $full = false)
+
+/**
+ * Genereert een relative tijdstring op basis van de gegeven datum, bijvol: 2 dagen geleden
+ *
+ * @param string $datetime
+ * @param bool $full
+ * @return string
+ * @throws DateMalformedStringException
+ */
+function time_elapsed_string(string $datetime, bool $full = false): string
 {
     $now = new DateTime();
     $ago = new DateTime($datetime);
@@ -29,9 +37,21 @@ function time_elapsed_string($datetime, $full = false)
     return $string ? implode(', ', $string) . ' geleden' : 'zojuist';
 }
 
-function raiseNotFound($message = 'Pagina bestaat niet')
+/**
+ * @param string $message
+ * @return void
+ */
+function raiseNotFound(string $message = 'Pagina bestaat niet'): void
 {
     http_response_code(404);
     require_once(__DIR__ . '/../include/404.php');
     exit();
+}
+
+function formatPageLink(int $currentPage, int $page): string
+{
+    $link = $_SERVER['QUERY_STRING'];
+    $link = str_replace('page=' . $currentPage, '', $link);
+    $link = trim($link, '&');
+    return '?page=' . $page . ($link ? '&' . $link : '');
 }

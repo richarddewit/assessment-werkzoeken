@@ -71,3 +71,23 @@ form label {
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.pagination {
+    text-align: center;
+    margin: 1em 0;
+}
+
+.pagination a {
+    display: inline-block;
+    padding: 0.5em 0.75em;
+    margin: 0 0.25em;
+    background-color: #ccc;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+}
+
+.pagination a.active {
+    background-color: #7CA;
+    color: white;
+}
